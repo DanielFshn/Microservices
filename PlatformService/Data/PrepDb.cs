@@ -15,20 +15,20 @@ public static class PrepDb
 
     private static void SeedDate(AppDbContext? context, bool isProduction = false)
     {
-        //if (isProduction)
-        //{
-        //    Console.WriteLine("--> Running migrations");
-        //    try
-        //    {
-        //        context.Database.Migrate();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        Console.WriteLine($"--> Could not run migrations {e.Message}");
-        //        throw;
-        //    }
+        if (isProduction)
+        {
+            Console.WriteLine("--> Running migrations");
+            try
+            {
+                context.Database.Migrate();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"--> Could not run migrations {e.Message}");
+                throw;
+            }
 
-        //}
+        }
 
         if (!context.Platforms.Any())
         {
